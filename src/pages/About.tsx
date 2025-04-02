@@ -16,7 +16,11 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
       {/* Hero Banner */}
       <section className="py-20 md:py-28 bg-secondary/30">
         <div className="container mx-auto text-center">
@@ -26,7 +30,11 @@ const About = () => {
           </p>
         </div>
       </section>
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
       {/* About Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto">
@@ -48,9 +56,15 @@ const About = () => {
               </Button>
             </div>
             <div className="order-1 md:order-2 relative animate-fade-in">
+<<<<<<< HEAD
               <img
                 src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3"
                 alt="Our team working"
+=======
+              <img 
+                src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3" 
+                alt="Our team working" 
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
                 className="rounded-lg shadow-lg w-full object-cover h-[400px]"
               />
               <div className="absolute -bottom-8 -left-8 bg-primary text-white p-6 rounded-lg shadow-lg hidden md:block">
@@ -61,7 +75,11 @@ const About = () => {
           </div>
         </div>
       </section>
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
       {/* Stats Section */}
       <section className="py-16 bg-secondary/20">
         <div className="container mx-auto">
@@ -85,7 +103,11 @@ const About = () => {
           </div>
         </div>
       </section>
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
       {/* Team Section */}
       <section id="our-team" className="py-16 md:py-24">
         <div className="container mx-auto">
@@ -100,22 +122,35 @@ const About = () => {
               The talented people behind the scenes of our organization
             </p>
           </div>
+<<<<<<< HEAD
 
+=======
+          
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
             {[
               {
                 name: "Do Huu Quy",
                 role: "",
+<<<<<<< HEAD
                 image: "https://res.cloudinary.com/dfhpxjibw/image/upload/v1743610842/quy_lbqtzg.jpg"
+=======
+                image: ""
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
               },
               {
                 name: "Nguyen Tuan Duong",
                 role: "",
+<<<<<<< HEAD
                 image: "https://res.cloudinary.com/dfhpxjibw/image/upload/v1743610342/duong_cfux77.png"
+=======
+                image: ""
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
               },
               {
                 name: "Pham Huu Khanh",
                 role: "",
+<<<<<<< HEAD
                 image: "https://res.cloudinary.com/dfhpxjibw/image/upload/v1743610447/4292a322574c8ee7e2e7da880741666f_-_Copy_ilygoz.jpg"
               },
               {
@@ -142,6 +177,19 @@ const About = () => {
                 <img
                   src={member.image}
                   alt={member.name}
+=======
+                image: "https://res.cloudinary.com/dfhpxjibw/image/upload/v1741866590/4292a322574c8ee7e2e7da880741666f_rokbaw.jpg"
+              }
+            ].map((member, index) => (
+              <div 
+                key={index} 
+                className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all animate-scale"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <img 
+                  src={member.image} 
+                  alt={member.name} 
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
                   className="w-full h-80 object-cover object-center"
                 />
                 <div className="p-6 text-center">
@@ -162,9 +210,58 @@ const About = () => {
               </div>
             ))}
           </div>
+<<<<<<< HEAD
         </div>
       </section>
 
+=======
+
+          {/* Last two images centered */}
+          <div className="flex justify-center gap-8 mt-8">
+            {[
+              {
+                name: "Nguyen The Duc",
+                role: "",
+                image: ""
+              },
+              {
+                name: "Nguyen Uyen Nhi",
+                role: "",
+                image: ""
+              }
+            ].map((member, index) => (
+              <div 
+                key={index} 
+                className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all animate-scale w-[300px]"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <img 
+                  src={member.image} 
+                  alt={member.name} 
+                  className="w-full h-80 object-cover object-center"
+                />
+                <div className="p-6 text-center">
+                  <h3 className="font-bold text-xl mb-1">{member.name}</h3>
+                  <p className="text-muted-foreground">{member.role}</p>
+                  <div className="flex justify-center space-x-4 mt-4">
+                    <a href="#" className="text-accent hover:text-primary transition-colors">
+                      <Twitter className="h-5 w-5" />
+                    </a>
+                    <a href="#" className="text-accent hover:text-primary transition-colors">
+                      <Instagram className="h-5 w-5" />
+                    </a>
+                    <a href="#" className="text-accent hover:text-primary transition-colors">
+                      <Facebook className="h-5 w-5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
       {/* Contact Information */}
       <section className="py-16 bg-secondary/20">
         <div className="container mx-auto">
@@ -178,7 +275,11 @@ const About = () => {
                 123 Hoang Mai, Hanoi
               </p>
             </div>
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
             <div className="bg-card p-8 rounded-lg shadow-sm flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '100ms' }}>
               <div className="bg-primary/10 p-4 rounded-full mb-4">
                 <Phone className="h-6 w-6 text-primary" />
@@ -188,18 +289,30 @@ const About = () => {
                 +84 987 654 321
               </p>
             </div>
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
             <div className="bg-card p-8 rounded-lg shadow-sm flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '200ms' }}>
               <div className="bg-primary/10 p-4 rounded-full mb-4">
                 <Mail className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-lg font-bold mb-2">Email</h3>
               <p className="text-muted-foreground">
+<<<<<<< HEAD
                 support@novashop.com
 
               </p>
             </div>
 
+=======
+              support@novashop.com
+
+              </p>
+            </div>
+            
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
             <div className="bg-card p-8 rounded-lg shadow-sm flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '300ms' }}>
               <div className="bg-primary/10 p-4 rounded-full mb-4">
                 <Clock className="h-6 w-6 text-primary" />
@@ -213,7 +326,11 @@ const About = () => {
           </div>
         </div>
       </section>
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
       {/* CTA Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto">
@@ -233,7 +350,11 @@ const About = () => {
           </div>
         </div>
       </section>
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
       <Footer />
     </div>
   );
