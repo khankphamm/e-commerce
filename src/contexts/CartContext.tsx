@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from '@/contexts/AuthContext';
@@ -69,35 +68,18 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [cartItems, isAuthenticated, saveUserCart]);
 
   // Load user's cart when user changes
-<<<<<<< HEAD
-  // useEffect(() => {
-  //   if (user) {
-  //     const userCart = getUserCart();
-  //     if (userCart && userCart.length > 0) {
-  //       setCartItems(userCart);
-  //       console.log(`Loaded ${userCart.length} items from ${user.email}'s cart`);
-  //     }
-  //   } else {
-  //     // Clear cart when user logs out
-  //     setCartItems([]);
-  //     console.log('User logged out, cart cleared');
-  //   }
-  // }, [user, getUserCart]);
-=======
   useEffect(() => {
     if (user) {
       const userCart = getUserCart();
-      if (userCart && userCart.length > 0) {
+      if (userCart) {
         setCartItems(userCart);
-        console.log(`Loaded ${userCart.length} items from ${user.email}'s cart`);
+        console.log('User cart loaded:', userCart);
       }
     } else {
-      // Clear cart when user logs out
       setCartItems([]);
       console.log('User logged out, cart cleared');
     }
   }, [user, getUserCart]);
->>>>>>> 62cd9f8d7c43d3b8a81cf3a7e7b971a1186ef842
 
   // Add or update item in cart
   const addToCart = (newItem: CartItem) => {
