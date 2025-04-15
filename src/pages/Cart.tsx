@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
@@ -46,9 +45,26 @@ const Cart = () => {
       // In a real app, this would call an API endpoint
       await new Promise(resolve => setTimeout(resolve, 1500));
       
+      // Create a detailed order summary
+      const orderSummary = cartItems.map(item => 
+        `${item.name} (${item.quantity}x) - $${(item.price * item.quantity).toFixed(2)}`
+      ).join('\n');
+      
       toast({
         title: "Order Confirmation",
-        description: `An email has been sent to ${user?.email} with your order details.`,
+        description: (
+          <div className="space-y-2">
+            <p><strong>Order Details:</strong></p>
+            <p className="whitespace-pre-line">{orderSummary}</p>
+            <p><strong>Customer:</strong> {user?.name}</p>
+            <p><strong>Email:</strong> {user?.email}</p>
+            <p><strong>Total Amount:</strong> ${total.toFixed(2)}</p>
+            <p className="text-sm text-muted-foreground mt-2">
+              A confirmation email has been sent to your email address.
+            </p>
+          </div>
+        ),
+        duration: 5000, // Show for 5 seconds
       });
       
       console.log("Email notification sent to:", user?.email);
