@@ -58,28 +58,28 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   });
 
   // Save cart to localStorage and user's data whenever it changes
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItems));
+  // useEffect(() => {
+  //   localStorage.setItem('cart', JSON.stringify(cartItems));
     
-    // If user is authenticated, save cart to their data in "database"
-    if (isAuthenticated) {
-      saveUserCart(cartItems);
-    }
-  }, [cartItems, isAuthenticated, saveUserCart]);
+  //   // If user is authenticated, save cart to their data in "database"
+  //   if (isAuthenticated) {
+  //     saveUserCart(cartItems);
+  //   }
+  // }, [cartItems, isAuthenticated, saveUserCart]);
 
   // Load user's cart when user changes
-  useEffect(() => {
-    if (user) {
-      const userCart = getUserCart();
-      if (userCart) {
-        setCartItems(userCart);
-        console.log('User cart loaded:', userCart);
-      }
-    } else {
-      setCartItems([]);
-      console.log('User logged out, cart cleared');
-    }
-  }, [user, getUserCart]);
+  // useEffect(() => {
+  //   if (user) {
+  //     const userCart = getUserCart();
+  //     if (userCart) {
+  //       setCartItems(userCart);
+  //       console.log('User cart loaded:', userCart);
+  //     }
+  //   } else {
+  //     setCartItems([]);
+  //     console.log('User logged out, cart cleared');
+  //   }
+  // }, [user, getUserCart]);
 
   // Add or update item in cart
   const addToCart = (newItem: CartItem) => {

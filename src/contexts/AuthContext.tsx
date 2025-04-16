@@ -55,26 +55,26 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const navigate = useNavigate();
 
   // Check for saved user on mount
-  useEffect(() => {
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-      try {
-        const parsedUser = JSON.parse(savedUser);
-        // Fetch the latest user data from our "database"
-        const latestUserData = getUserFromDatabase(parsedUser.email);
-        if (latestUserData) {
-          setUser(latestUserData);
-        } else {
-          setUser(parsedUser);
-          // Also save to "database" if not already there
-          saveUserToDatabase(parsedUser);
-        }
-      } catch (error) {
-        console.error('Failed to parse saved user:', error);
-        localStorage.removeItem('user');
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   const savedUser = localStorage.getItem('user');
+  //   if (savedUser) {
+  //     try {
+  //       const parsedUser = JSON.parse(savedUser);
+  //       // Fetch the latest user data from our "database"
+  //       const latestUserData = getUserFromDatabase(parsedUser.email);
+  //       if (latestUserData) {
+  //         setUser(latestUserData);
+  //       } else {
+  //         setUser(parsedUser);
+  //         // Also save to "database" if not already there
+  //         saveUserToDatabase(parsedUser);
+  //       }
+  //     } catch (error) {
+  //       console.error('Failed to parse saved user:', error);
+  //       localStorage.removeItem('user');
+  //     }
+  //   }
+  // }, []);
 
   const login = (userData: User) => {
     // Check if user exists in "database"
