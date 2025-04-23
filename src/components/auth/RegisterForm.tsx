@@ -11,8 +11,6 @@ import { useToast } from "@/components/ui/use-toast";
 import { GoogleLogin } from "./GoogleLogin";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import axios from "axios";
-import Cookies from "js-cookie";
 
 const registerSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -47,20 +45,21 @@ export function RegisterForm({ onSuccess, switchToLogin }: RegisterFormProps) {
     setIsLoading(true);
     
     try {
-      // Call the registration API
-      const response = await axios.post('http://26.233.64.87:8080/api/register', {
-        name: data.name,
-        email: data.email,
-        password: data.password
-      });
-
-      const userData = response.data;
+      // Check if user already exists
+      const allUsers = JSON.parse(localStorage.getItem('all_users') || '{}');
+      if (allUsers[data.email]) {
+        throw new Error(t('auth.emailExists'));
+      }
       
-      // Store user data in cookies
-      Cookies.set('user', JSON.stringify(userData), { expires: 7 }); // Cookie expires in 7 days
-
-      // Login the user using our AuthContext
-      login(userData);
+      // Create new user in our "database"
+      const newUser = { 
+        email: data.email, 
+        name: data.name,
+        cart: []
+      };
+      
+      // Login the user using our AuthContext (this will also save to "database")
+      login(newUser);
       
       toast({
         title: t('auth.registerSuccess'),
@@ -68,19 +67,13 @@ export function RegisterForm({ onSuccess, switchToLogin }: RegisterFormProps) {
       });
       
       onSuccess();
-      
-      // Redirect based on user role
-      if (userData.role === 'admin') {
-        navigate("/admin");
-      } else {
-        navigate("/account");
-      }
+      navigate("/account");
     } catch (error: any) {
       console.error("Registration error:", error);
       toast({
         variant: "destructive",
         title: t('auth.registerFailed'),
-        description: error.response?.data?.message || t('auth.tryAgain'),
+        description: error.message || t('auth.tryAgain'),
       });
     } finally {
       setIsLoading(false);

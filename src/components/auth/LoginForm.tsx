@@ -11,12 +11,10 @@ import { useToast } from "@/components/ui/use-toast";
 import { GoogleLogin } from "./GoogleLogin";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Cookies from 'js-cookie';
-import axios from 'axios';
 
 const loginSchema = (t: (key: string) => string) => z.object({
   email: z.string().email({ message: t('auth.emailError') }),
-  password: z.string().min(3, { message: t('auth.passwordError') }),
+  password: z.string().min(6, { message: t('auth.passwordError') }),
 });
 
 type LoginFormValues = z.infer<ReturnType<typeof loginSchema>>;
@@ -33,7 +31,6 @@ export function LoginForm({ onSuccess, switchToRegister }: LoginFormProps) {
   const { login } = useAuth();
   const { t } = useLanguage();
   
-  // Khởi tạo form với useForm hook
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema(t)),
     defaultValues: {
@@ -46,15 +43,16 @@ export function LoginForm({ onSuccess, switchToRegister }: LoginFormProps) {
     setIsLoading(true);
     
     try {
-      // Call your login API using axios
-      const response = await axios.post('http://26.233.64.87:8080/api/login', data);
-      const userData = response.data;
+      // Check if user exists in our "database"
+      const allUsers = JSON.parse(localStorage.getItem('all_users') || '{}');
+      const user = allUsers[data.email];
       
-      // Store user data in cookies
-      Cookies.set('user', JSON.stringify(userData), { expires: 7 }); // Expires in 7 days
+      if (!user) {
+        throw new Error(t('auth.invalidCredentials'));
+      }
       
       // Login the user using our AuthContext
-      login(userData);
+      login({ email: data.email, name: user.name, cart: user.cart });
       
       toast({
         title: t('auth.login'),
@@ -62,19 +60,13 @@ export function LoginForm({ onSuccess, switchToRegister }: LoginFormProps) {
       });
       
       onSuccess();
-      
-      // Redirect based on user role
-      if (userData.role === 1 ) {
-        navigate("/admin");
-      } else {
-        navigate("/account");
-      }
-    } catch (error) {
+      navigate("/account");
+    } catch (error: any) {
       console.error("Login error:", error);
       toast({
         variant: "destructive",
         title: t('auth.login'),
-        description: error.response?.data?.message || t('auth.loginError'),
+        description: error.message || t('auth.loginError'),
       });
     } finally {
       setIsLoading(false);

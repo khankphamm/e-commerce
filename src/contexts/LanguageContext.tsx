@@ -166,7 +166,26 @@ const translations: Translations = {
     'contact.form.phonePlaceholder': '+1 (234) 567-8900',
     'contact.form.subjectPlaceholder': 'How can we help you?',
     'contact.form.messagePlaceholder': 'Write your message here...',
-    'contact.form.submit' : 'Submit'
+    'contact.form.submit' : 'Submit',
+    // Account
+    'account.title': 'My Account',
+    'account.profile': 'Profile',
+    'account.profileDesc': 'Manage your account information',
+    'account.email': 'Email',
+    'account.name': 'Name',
+    'account.signInMethod': 'Sign-in method',
+    'account.signOut': 'Sign Out',
+    'account.orders': 'Orders',
+    'account.ordersDesc': 'View your order history',
+    'account.noOrders': 'You haven\'t placed any orders yet.',
+    'account.startShopping': 'Start Shopping',
+    'account.wishlist': 'Wishlist',
+    'account.wishlistDesc': 'Products you\'ve saved for later',
+    'account.emptyWishlist': 'Your wishlist is empty.',
+    'account.exploreProducts': 'Explore Products',
+    'account.signInRequired': 'Sign in to your account',
+    'account.signInMessage': 'Please sign in to view your account details, orders, and more.',
+    'account.returnHome': 'Return to Home',
   },
   vi: {
     // Navigation
@@ -325,7 +344,26 @@ const translations: Translations = {
     'contact.form.phonePlaceholder': '+84 123 456 789',
     'contact.form.subjectPlaceholder': 'Chúng tôi có thể giúp gì cho bạn?',
     'contact.form.messagePlaceholder': 'Viết tin nhắn của bạn tại đây...',
-    'contact.form.submit' : 'Gửi'
+    'contact.form.submit' : 'Gửi',
+    // Account
+    'account.title': 'Tài Khoản Của Tôi',
+    'account.profile': 'Hồ Sơ',
+    'account.profileDesc': 'Quản lý thông tin tài khoản của bạn',
+    'account.email': 'Email',
+    'account.name': 'Họ tên',
+    'account.signInMethod': 'Phương thức đăng nhập',
+    'account.signOut': 'Đăng xuất',
+    'account.orders': 'Đơn hàng',
+    'account.ordersDesc': 'Xem lịch sử đơn hàng',
+    'account.noOrders': 'Bạn chưa có đơn hàng nào.',
+    'account.startShopping': 'Bắt đầu mua sắm',
+    'account.wishlist': 'Danh sách yêu thích',
+    'account.wishlistDesc': 'Sản phẩm bạn đã lưu để xem sau',
+    'account.emptyWishlist': 'Danh sách yêu thích của bạn đang trống.',
+    'account.exploreProducts': 'Khám phá sản phẩm',
+    'account.signInRequired': 'Đăng nhập vào tài khoản',
+    'account.signInMessage': 'Vui lòng đăng nhập để xem chi tiết tài khoản, đơn hàng và hơn thế nữa.',
+    'account.returnHome': 'Quay về trang chủ',
   }
 };
 
